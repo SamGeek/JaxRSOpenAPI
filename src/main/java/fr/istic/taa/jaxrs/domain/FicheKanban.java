@@ -1,5 +1,6 @@
 package fr.istic.taa.jaxrs.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
@@ -8,10 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
-public class FicheKanban {
+public class FicheKanban implements Serializable {
 
 	
 	private Long id; 
@@ -26,9 +26,24 @@ public class FicheKanban {
 	private Section section ;
 	
 	
-	public FicheKanban() {
-	}
 	
+	
+	public FicheKanban() {
+		super();
+	}
+	public FicheKanban(int temps_necessaire, String lieu, List<Tag> tags, String url, String note_explicative,
+			String libelle, Date date_butoire, int position, Section section) {
+		super();
+		this.temps_necessaire = temps_necessaire;
+		this.lieu = lieu;
+		this.tags = tags;
+		this.url = url;
+		this.note_explicative = note_explicative;
+		this.libelle = libelle;
+		this.date_butoire = date_butoire;
+		this.position = position;
+		this.section = section;
+	}
 	@Id
 	@GeneratedValue
 	public Long getId() {

@@ -23,8 +23,12 @@ import javax.ws.rs.core.Application;
 
 import fr.istic.taa.jaxrs.domain.Collaborateur;
 import fr.istic.taa.jaxrs.rest.CollaborateurResource;
+import fr.istic.taa.jaxrs.rest.FicheKanbanResource;
 import fr.istic.taa.jaxrs.rest.PetResource;
+import fr.istic.taa.jaxrs.rest.SectionResource;
 import fr.istic.taa.jaxrs.rest.SwaggerResource;
+import fr.istic.taa.jaxrs.rest.TableauKanbanResource;
+import fr.istic.taa.jaxrs.rest.TagResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 public class TestApplication extends Application {
@@ -39,6 +43,11 @@ public class TestApplication extends Application {
         clazzes.add(OpenApiResource.class);
         clazzes.add(CollaborateurResource.class);
         clazzes.add(SwaggerResource.class);
+
+        clazzes.add(FicheKanbanResource.class);
+        clazzes.add(SectionResource.class);
+        clazzes.add(TableauKanbanResource.class);
+        clazzes.add(TagResource.class);
         
         
         return clazzes;

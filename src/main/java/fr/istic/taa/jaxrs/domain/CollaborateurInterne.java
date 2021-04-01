@@ -9,10 +9,13 @@ public class CollaborateurInterne extends Collaborateur {
 
 	private String departement ; 
 	private String projet ; 
+
+	
 	
 	public CollaborateurInterne() {
+		super();
 	}
-	
+
 	public CollaborateurInterne(String nom, String prenom, String email , String departement, String projet) {
 		super(nom, prenom, email);
 		this.departement = departement;
@@ -38,7 +41,7 @@ public class CollaborateurInterne extends Collaborateur {
 	@Override
 	public String toString() {
 		return "collaborateur interne [id=" + super.getId() + ", nom=" + super.getNom() + ", prenom =" 
-				+ super.getPrenom() +" ,email = "+super.getEmail()+" departement : "+ departement + " projet :  "+projet+  "]";
+				+ super.getPrenom() +" ,email = "+super.getEmail()+" departement : "+ departement + " projet :  "+projet+  "] \n";
 	}
 	
 

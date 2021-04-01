@@ -21,7 +21,11 @@ public abstract class AbstractJpaDao<K, T extends Serializable> implements IGene
 	}
 
 	public T findOne(K id) {
-		return entityManager.find(clazz, id);
+		EntityTransaction t = this.entityManager.getTransaction();
+		t.begin();
+		T res = entityManager.find(clazz, id);
+		t.commit();
+		return res;
 	}
 
 	public List<T> findAll() {
@@ -33,7 +37,6 @@ public abstract class AbstractJpaDao<K, T extends Serializable> implements IGene
 		t.begin();
 		entityManager.persist(entity);
 		t.commit();
-
 	}
 
 	public T update(final T entity) {

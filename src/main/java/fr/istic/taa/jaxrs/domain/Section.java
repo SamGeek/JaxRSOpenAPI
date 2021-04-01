@@ -1,5 +1,6 @@
 package fr.istic.taa.jaxrs.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,10 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Section {
+public class Section implements Serializable {
 	
 	
 	private long id ;
@@ -18,9 +18,18 @@ public class Section {
 	private TableauKanban tableaukanban ; 
 	private String libelle ;
 	
-	public Section() {
-	}
 	
+	
+	
+	public Section() {
+		super();
+	}
+
+	public Section(String libelle, TableauKanban tableauKanban) {
+		super();
+		this.tableaukanban = tableauKanban;
+		this.libelle = libelle;
+	}
 	
 	@Id
 	@GeneratedValue

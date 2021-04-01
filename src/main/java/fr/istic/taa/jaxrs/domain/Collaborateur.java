@@ -1,5 +1,6 @@
 package fr.istic.taa.jaxrs.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,14 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Collaborateur {
+public class Collaborateur implements Serializable {
 		
 	private Long id ; 
 	private List<TableauKanban> tableaukanban ; 
@@ -28,11 +26,9 @@ public class Collaborateur {
 		return id;
 	}
 	
-	
-	
 	public Collaborateur() {
+		super();
 	}
-
 
 
 	public Collaborateur(  String nom, String prenom, String email) {
@@ -76,7 +72,7 @@ public class Collaborateur {
 	@Override
 	public String toString() {
 		return "collaborateur [id=" + id + ", nom=" + nom + ", prenom =" 
-				+ prenom +" ,email = "+email+  "]";
+				+ prenom +" ,email = "+email+  "] \n";
 	}
 
 	

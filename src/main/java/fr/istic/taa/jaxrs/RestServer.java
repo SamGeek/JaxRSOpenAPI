@@ -1,9 +1,10 @@
 package fr.istic.taa.jaxrs;
 
-import io.undertow.Undertow;
+import java.util.logging.Logger;
+
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
 
-import java.util.logging.Logger;
+import io.undertow.Undertow;
 
 /**
  * RESTfull microservice, based on JAX-RS and JBoss Undertow
@@ -28,5 +29,7 @@ public class RestServer {
         );
 
         logger.info("JAX-RS based micro-service running!");
+        
     }
+   
 }

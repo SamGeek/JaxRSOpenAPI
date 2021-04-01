@@ -1,22 +1,40 @@
 package fr.istic.taa.jaxrs.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 
 @Entity
-public class Tag {
+@NamedQueries(
+		{
+			@NamedQuery(name = "Tag.touslestags", query = "Select t from Tag t"),
+			@NamedQuery(name = "Tag.recherchetagparnom", query = "Select t from Tag t where t.libelle = :libelle")
+		})
+public class Tag implements Serializable {
+	
 	
 	private Long id; 
 	private String libelle ;
 	private List<FicheKanban> fichekanbans ; 
 	
+	
+	
 	public Tag() {
+		super();
 	}
+
+
+	public Tag(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+	
 	
 	@javax.persistence.Id
 	@GeneratedValue
@@ -42,6 +60,17 @@ public class Tag {
 	public void setFichekanbans(List<FicheKanban> fichekanbans) {
 		this.fichekanbans = fichekanbans;
 	}
+
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Je suis le tag d'id "+this.id+" et de libellé "+this.libelle+" \n ";
+	}
+	
+	
+	
+	
 	
 	
 }

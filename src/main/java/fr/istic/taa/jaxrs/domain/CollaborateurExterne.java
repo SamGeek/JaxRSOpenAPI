@@ -10,9 +10,19 @@ public class CollaborateurExterne extends Collaborateur {
 	private String entreprise ; 
 	private String grade ; 
 	
-	public CollaborateurExterne() {
-	}
 	
+	
+	public CollaborateurExterne() {
+		super();
+	}
+
+
+	public CollaborateurExterne(String nom, String prenom, String email) {
+		super(nom, prenom, email);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public CollaborateurExterne(String nom, String prenom, String email, String entreprise, String grade) {
 		super(nom, prenom, email);
 		this.entreprise = entreprise;
@@ -42,7 +52,7 @@ public class CollaborateurExterne extends Collaborateur {
 	@Override
 	public String toString() {
 		return "collaborateur externe [id=" + super.getId() + ", nom=" + super.getNom() + ", prenom =" 
-				+ super.getPrenom() +" ,email = "+super.getEmail()+" entreprise : "+ entreprise + " grade :  "+grade+  "]";
+				+ super.getPrenom() +" ,email = "+super.getEmail()+" entreprise : "+ entreprise + " grade :  "+grade+  "] \n";
 	}
 
 }

@@ -73,10 +73,10 @@
 				value="class, hbm" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.connection.driver_class"
-				value="com.mysql.jdbc.Driver" />
+				value="com.mysql.cj.jdbc.Driver" />
 			<property name="hibernate.connection.password" value="samuel" />
 			<property name="hibernate.connection.url"
-				value="jdbc:mysql://192.168.64.2:3306/mavendatabase" />
+				value="jdbc:mysql://192.168.64.3:3306/mavendatabase" />
 			<property name="hibernate.connection.username" value="samuel" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL57Dialect" />

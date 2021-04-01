@@ -17,9 +17,7 @@ public class SwaggerResource {
     @GET
     public byte[] Get1() {
         try {
-        	//System.out.println(FileSystems.getDefault().get("src/main/webapp/swagger/index.html"));
-        	
-        	
+
         	String resourceName = "src/main/webapp/swagger/index.html";
         	
         	File file = new File(resourceName);
