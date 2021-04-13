@@ -10,11 +10,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Collaborateur implements Serializable {
 		
 	private Long id ; 
+	@JsonIgnore
 	private List<TableauKanban> tableaukanban ; 
 	private String nom ; 	
 	private String prenom ;

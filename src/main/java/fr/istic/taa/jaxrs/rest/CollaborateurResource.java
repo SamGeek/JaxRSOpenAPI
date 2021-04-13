@@ -1,5 +1,7 @@
 package fr.istic.taa.jaxrs.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,12 +16,20 @@ import fr.istic.taa.jaxrs.dao.generic.AbstractJpaDao;
 import fr.istic.taa.jaxrs.domain.Collaborateur;
 
 @Path("/collaborateur")
-@Produces({ "application/json", "application/xml" })
+@Produces({ "application/json" })
 public class CollaborateurResource {
 
 	private AbstractJpaDao<Long, Collaborateur> collaborateurDao = new AbstractJpaDao<Long, Collaborateur>(){};
 	
-
+	
+	@GET
+	@Path("/getAll")
+	@Consumes("application/json")
+	public List<Collaborateur> getAllCollaborateurs() {
+		collaborateurDao.setClazz(Collaborateur.class);
+		return collaborateurDao.findAll();
+	}
+	
 	@GET
 	@Path("/{collaborateurId}")
 	@Consumes("application/json")

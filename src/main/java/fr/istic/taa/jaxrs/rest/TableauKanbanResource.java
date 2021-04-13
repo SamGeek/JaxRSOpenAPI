@@ -1,5 +1,7 @@
 package fr.istic.taa.jaxrs.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -11,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import fr.istic.taa.jaxrs.dao.generic.AbstractJpaDao;
+import fr.istic.taa.jaxrs.domain.Section;
 import fr.istic.taa.jaxrs.domain.TableauKanban;
 import io.swagger.v3.oas.annotations.Parameter;
 
@@ -20,6 +23,14 @@ public class TableauKanbanResource {
 
 	private AbstractJpaDao<Long, TableauKanban> tableauKanbanDao = new AbstractJpaDao<Long, TableauKanban>(){};
 
+	@GET
+	@Path("/getAll")
+	@Consumes("application/json")
+	public List<TableauKanban> getAllTableauxKanban() {
+		tableauKanbanDao.setClazz(TableauKanban.class);
+		return tableauKanbanDao.findAll();
+	}
+	
 	@GET
 	@Path("/{tableaukanbanID}")
 	public TableauKanban getTableauKanbanById(@PathParam("tableaukanbanID") Long tableaukanbanID) {

@@ -1,5 +1,7 @@
 package fr.istic.taa.jaxrs.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -11,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import fr.istic.taa.jaxrs.dao.generic.AbstractJpaDao;
+import fr.istic.taa.jaxrs.domain.TableauKanban;
 import fr.istic.taa.jaxrs.domain.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 
@@ -19,6 +22,15 @@ import io.swagger.v3.oas.annotations.Parameter;
 public class TagResource {
 
 	private AbstractJpaDao<Long, Tag> tagDao = new AbstractJpaDao<Long, Tag>(){};
+	
+	@GET
+	@Path("/getAll")
+	@Consumes("application/json")
+	public List<Tag> getAllTags() {
+		tagDao.setClazz(Tag.class);
+		return tagDao.findAll();
+	}
+	
 
 	@GET
 	@Path("/{tagID}")

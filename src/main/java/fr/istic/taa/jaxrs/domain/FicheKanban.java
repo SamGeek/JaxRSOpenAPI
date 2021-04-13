@@ -27,7 +27,6 @@ public class FicheKanban implements Serializable {
 	
 	
 	
-	
 	public FicheKanban() {
 		super();
 	}

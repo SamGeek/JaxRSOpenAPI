@@ -19,8 +19,6 @@ public class Section implements Serializable {
 	private String libelle ;
 	
 	
-	
-	
 	public Section() {
 		super();
 	}
